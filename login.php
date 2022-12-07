@@ -8,6 +8,7 @@
 <body>
 <?php
     require('db.php');
+    
     session_start();
     // When form submitted, check and create user session.
     if (isset($_POST['username'])) {
@@ -16,17 +17,34 @@
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
         // Check user is exist in the database
-        $query    = "SELECT * FROM `users` WHERE username='$username'
+        $query    = "SELECT * FROM `providers` WHERE username='$username'
                      AND password='" . md5($password) . "'";
-        $result = mysqli_query($con, $query) or die(mysql_error());
+
+        $query2 =  "SELECT * FROM `customers` WHERE username='$username'
+        AND password='" . md5($password) . "'";
+
+        $result = mysqli_query($con, $query)  or die(mysql_error());
         $rows = mysqli_num_rows($result);
+        $result2 = mysqli_query($con, $query2)  or die(mysql_error());
+        $rows2 = mysqli_num_rows($result2);
         if ($rows == 1) {
             $_SESSION['username'] = $username;
             // Redirect to user dashboard page
-            header("Location: dashboard.php");
-        } else {
+            header("Location: provider_dashboard.php");
+        }
+
+        elseif($rows2 == 1) {
+            $_SESSION['username'] = $username;
+            // Redirect to user dashboard page
+            header("Location: customer_dashboard.php");
+        }
+
+
+        
+        
+        else {
             echo "<div class='form'>
-                  <h3>Incorrect Username/password.</h3><br/>
+                  <h3>Incorrect Username or password.</h3><br/>
                   <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
                   </div>";
         }
