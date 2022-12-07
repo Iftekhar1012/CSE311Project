@@ -8,6 +8,13 @@
 <body>
 <?php
     require('db.php');
+//function to check data input
+    function test_input($data) {  
+        $data = trim($data);  
+        $data = stripslashes($data);  
+        $data = htmlspecialchars($data);  
+        return $data;  
+      }  
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['username'])) {
         // removes backslashes
@@ -26,17 +33,20 @@
 
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
-       
-        $rd_name =  isset($_POST["type_of"]);
 
-        if($rd_name=="customer"){
+        $rd_name = test_input($_POST["type_of"]);  
+
+       
+        
+
+        if($rd_name == "customer"){
             $create_datetime = date("Y-m-d H:i:s");
             $query    = "INSERT into `customers` (username, fullname, address, phone, password, email, create_datetime)
                          VALUES ('$username','$fullname','$address','$phone', '" . md5($password) . "', '$email', '$create_datetime')";
             $result   = mysqli_query($con, $query);
             if ($result) {
                 echo "<div class='form'>
-                      <h3>You are registered successfully.</h3><br/>
+                      <h3>You are registered successfully as a customer.</h3><br/>
                       <p class='link'>Click here to <a href='login.php'>Login</a></p>
                       </div>";
             } else {
@@ -47,14 +57,14 @@
             }
         }
 
-        elseif ($rd_name=="provider") {
+        elseif ($rd_name == "provider") {
             $create_datetime = date("Y-m-d H:i:s");
             $query    = "INSERT into `providers` (username, fullname, address, phone, password, email, create_datetime)
             VALUES ('$username','$fullname','$address','$phone', '" . md5($password) . "', '$email', '$create_datetime')";
             $result   = mysqli_query($con, $query);
             if ($result) {
                 echo "<div class='form'>
-                      <h3>You are registered successfully.</h3><br/>
+                      <h3>You are registered successfully as a service provider.</h3><br/>
                       <p class='link'>Click here to <a href='login.php'>Login</a></p>
                       </div>";
             } else {
@@ -77,13 +87,13 @@
         <input type="text" class="login-input" name="phone" placeholder="Phone number" >
         <input type="password" class="login-input" name="password" placeholder="Password" >
         <input type="radio" name="type_of"
-        <?php if (isset($type_of) && $type_of=="customer") echo "checked";?>
+        <?php if (isset($type_of) && $type_of=="customer")  $checker_type = 1;?>
             value="customer">Customer
             <input type="radio" name="type_of"
-        <?php if (isset($type_of) && $type_of=="provider") echo "checked";?>
+        <?php if (isset($type_of) && $type_of=="provider") $checker_type = 2;?>
         value="provider">Provider
 
-        <input type="submit" name="submit" value="Register" class="login-button">
+        <input type="submit" name="submit" value="Register" class="register-button">
         <p class="link"><a href="login.php">Click to Login</a></p>
     </form>
 <?php
