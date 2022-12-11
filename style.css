@@ -5,7 +5,7 @@ body {
     margin: 50px auto;
     width: 300px;
     padding: 30px 25px;
-    background: rgb(222, 217, 217);
+    background: rgb(247, 214, 214);
 }
 h1.login-title {
     color: #666;
@@ -27,7 +27,7 @@ h1.login-title {
     outline: none;
 }
 .login-button {
-    color: #fff;
+    color: rgb(169, 206, 240);
     background: #55a1ff;
     border: 0;
     outline: 0;
@@ -40,7 +40,7 @@ h1.login-title {
 
 .register-button{
 
-    color: rgb(98, 192, 184);
+    color: rgb(100, 138, 196);
     background: #3f494a;
     border: 0;
     outline: 0;
@@ -53,7 +53,7 @@ h1.login-title {
 
 }
 .link {
-    color: #666;
+    color: rgb(187, 179, 179);
     font-size: 15px;
     text-align: center;
     margin-bottom: 0px;
