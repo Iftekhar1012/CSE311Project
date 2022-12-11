@@ -20,8 +20,13 @@ include("db.php");
         
         ?>
         <p>Hey, <?php echo $_SESSION['username']; ?>!</p>
-        <p>You are now on Customer dashboard page.</p>
+        <p>You are now on Customer dashboard page</p>
         <p><a href="logout.php">Logout</a></p>
+    </div>
+    <div>
+    <h1><a href="#">Personal information</a></h1>
+    <h1><a href='#'>Inbox</a></h1>
+    <h1><a href='#'>Notification</a></h1>
     </div>
 </body>
 </html>

@@ -23,5 +23,12 @@ include("db.php");
         <p>You are now on service provider dashboard page.</p>
         <p><a href="logout.php">Logout</a></p>
     </div>
+
+    <div>
+    <h1><a href="#">Contact information</a></h1>
+    <h1><a href='#'>Inbox</a></h1>
+    <h1><a href='#'>Notification</a></h1>
+    </div>
+    
 </body>
 </html>
