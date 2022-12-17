@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 09:19 PM
+-- Generation Time: Dec 17, 2022 at 03:14 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -24,12 +24,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catergory`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `catergory` (
-  `ID` int(10) NOT NULL,
-  `Name` varchar(30) NOT NULL
+CREATE TABLE `category` (
+  `category_id` varchar(30) NOT NULL,
+  `cat_description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -53,8 +53,10 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`fullname`, `phone`, `address`, `username`, `email`, `password`, `create_datetime`) VALUES
+('Vlad', 2147483647, 'Romania', 'dracula', 'romania1451@gmail.com', '15afe50646e62907a102e2411dfaa13c', '2022-12-07 17:36:33'),
 ('Maya Citadel', 2147483647, 'Moghbazar', 'Maya', 'maya7@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-12-06 18:33:43'),
-('Riot Gone', 1234567, '3/7, Block-A, Lalmatia', 'riot', 'tanvirchowdhury35@gmail.com', '4cf7f5089db4fa4489f00cc5a90639fa', '2022-12-11 19:16:05');
+('Musashi Miyamoto', 123456, 'Musashi village', 'Miyamoto', 'swordsaint16@gmail.com', '578ed5a4eecf5a15803abdc49f6152d6', '2022-12-17 13:01:41'),
+('Yuko123', 2147483647, 'Razarbaghz', 'Yuko', 'yu0406@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '2022-12-07 16:27:33');
 
 -- --------------------------------------------------------
 
@@ -69,26 +71,28 @@ CREATE TABLE `providers` (
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `create_datetime` datetime NOT NULL
+  `create_datetime` datetime NOT NULL,
+  `categories` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `providers`
 --
 
-INSERT INTO `providers` (`fullname`, `phone`, `address`, `username`, `email`, `password`, `create_datetime`) VALUES
-('Jason', 2147483647, 'ctg', 'Json', 'jason@gmail.com', 'c134p128', '2022-12-06 22:33:43'),
-('Tanvir Chowdhury', 1234567, '3/7, Block-A, Lalmatia', 'Tanvir', 'tanvirchowdhury35@gmail.com', '5a69648c3510250a45622cc946465fff', '2022-12-11 18:21:30');
+INSERT INTO `providers` (`fullname`, `phone`, `address`, `username`, `email`, `password`, `create_datetime`, `categories`) VALUES
+('Hanzo Hattori', 334242424, 'Yeppen', 'Hanzo', 'hz@gmail.com', '160cc4b2a2948fb0090335a6c2782165', '2022-12-07 16:28:39', NULL),
+('Jason Hossain', 2147483647, 'Dhanmondi, Dhaka', 'Jason', 'jhossain18@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2022-12-07 18:37:55', NULL),
+('Murad IV', 1650, 'Istanbul', 'Murad', 'murad123@yahoo.com', '17ff830fc0d26b5d43f5fe65d6c4e98a', '2022-12-07 16:47:45', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `catergory`
+-- Indexes for table `category`
 --
-ALTER TABLE `catergory`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `customers`
