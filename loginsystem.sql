@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2022 at 03:14 PM
+-- Generation Time: Dec 23, 2022 at 03:03 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -28,9 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `category_id` varchar(30) NOT NULL,
-  `cat_description` varchar(100) NOT NULL
+  `category_name` varchar(32) DEFAULT NULL,
+  `cat_description` varchar(32) DEFAULT NULL,
+  `providers` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`category_name`, `cat_description`, `providers`) VALUES
+('cameraman', 'Shoots videos and photos', 'Jason'),
+('Guitarist', 'Plays guitar', 'Jason'),
+('Goalkeeper', 'Plays as a goalkeeper in a footb', 'Murad');
 
 -- --------------------------------------------------------
 
@@ -87,12 +97,6 @@ INSERT INTO `providers` (`fullname`, `phone`, `address`, `username`, `email`, `p
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `customers`
