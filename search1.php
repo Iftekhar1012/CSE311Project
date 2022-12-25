@@ -85,7 +85,7 @@ if(isset($_POST['submit'])){
 
               <form method='post'>
             <input type='submit' name='save_post'
-                    value='Save post'/></form>";
+                    value='Save post'/></form>
                     <?php
                     if(isset($_POST['save_post'])){
                             echo "<h1>Nothing really matters</h1>";
