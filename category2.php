@@ -16,7 +16,7 @@
 <br>
 <input type="submit" name="ADD" value="ADD" class="add-button">
 <br>
-<h1><a href="provider_dashboard.php">Back to dashboard</a></h1>
+<h1><a href="customer_dashboard.php">Back to dashboard</a></h1>
 
 
 </form>

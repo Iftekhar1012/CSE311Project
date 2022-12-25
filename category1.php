@@ -19,12 +19,13 @@
 <br>
 <input type="submit" name="ADD" value="ADD" class="add-button">
 <br>
-<h1><a href="customer_dashboard.php">Back to dashboard</a></h1>
+<h1><a href="provider_dashboard.php">Back to dashboard</a></h1>
 
 
 </form>
 <?php 
    require('db.php');
+   session_start();
    //function to check data input
        function test_input($data) {  
            $data = trim($data);  
@@ -42,9 +43,9 @@
            $c_description    = stripslashes($_REQUEST['c_description']);
            $c_description    = mysqli_real_escape_string($con, $c_description);
 
-
-           $qry   = "INSERT INTO category(category_name, cat_description)
-           VALUES('$category_name','$c_description')";
+           $username = $_SESSION['username'];
+           $qry   = "INSERT INTO category(category_name, cat_description,providers)
+           VALUES('$category_name','$c_description','$username')";
 $result   = mysqli_query($con, $qry);
 if ($result) {
   echo "<div class='form'>

@@ -10,7 +10,6 @@
 
     <?php
 require('db.php');
-
 session_start();
 $cat=$_SESSION['cat'];
 
