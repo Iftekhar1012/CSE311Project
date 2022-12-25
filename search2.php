@@ -1,5 +1,6 @@
 
 <html>
+<link rel="stylesheet" href="style.css"/>
     <head>
         <title>search</title>
 </head>

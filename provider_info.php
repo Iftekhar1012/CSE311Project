@@ -1,4 +1,5 @@
 <div>
+<link rel="stylesheet" href="style.css"/>
 <?php
 require('db.php');
 session_start();
