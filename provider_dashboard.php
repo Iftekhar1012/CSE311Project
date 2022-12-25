@@ -34,11 +34,11 @@ include("db.php");
     </div>
 
     <div>
-    <h1><a href="#">Contact information</a></h1>
+    <h1><a href="provider_info.php">Contact information</a></h1>
     <h1><a href="category2.php">Create a new category</a></h1>
-    <h1><a href= "search1.php">Add Category</a></h1>
+    <h1><a href= "search1.php">Browse Category</a></h1>
     <h1><a href='#'>Inbox</a></h1>
-    <h1><a href='#'>Notification</a></h1>
+    
     </div>
     
 </body>

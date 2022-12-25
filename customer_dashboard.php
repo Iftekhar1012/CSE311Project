@@ -24,7 +24,7 @@ include("db.php");
         <p><a href="logout.php">Logout</a></p>
     </div>
     <div>
-    <h1><a href="#">Personal information</a></h1>
+    <h1><a href="personal_info.php">Personal information</a></h1>
     <h1><a href="category1.php">Create a new category</a></h1>
     <h1><a href="search2.php">Search</a></h1>
     <h1><a href='#'>Inbox</a></h1>

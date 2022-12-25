@@ -6,11 +6,15 @@
 </head>
 
 <body>
-    <h1>hello</h1>
+    
     <form class="form" action="" method="post">
 <h2>Create a category</h2>
 <input type="text" class="text" name="category_name" placeholder="Category name" required />
-<input type="text" class="text" name="c_description" placeholder="Description" >
+<br>
+<br>
+<br>
+<textarea id="txtarea"class="text" name="c_description" placeholder="Description" rows="3" cols="20"></textarea>
+<br>
 <br>
 <input type="submit" name="ADD" value="ADD" class="add-button">
 <br>
@@ -38,7 +42,7 @@
            $c_description    = mysqli_real_escape_string($con, $c_description);
 
 
-           $qry   = "INSERT INTO category(category_id, cat_description)
+           $qry   = "INSERT INTO category(category_name, cat_description)
            VALUES('$category_name','$c_description')";
 $result   = mysqli_query($con, $qry);
 if ($result) {

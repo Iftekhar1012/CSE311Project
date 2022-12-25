@@ -5,11 +5,13 @@
 </head>
 
 <body>
-    <h1>hello</h1>
     <form class="form" action="" method="post">
 <h2>Create a category</h2>
 <input type="text" class="text" name="category_name" placeholder="Category name" required />
-<input type="text" class="text" name="c_description" placeholder="Description" >
+<br>
+<br>
+<br>
+<textarea id="txtarea"class="text" name="c_description" placeholder="Category description" rows="3" cols="20"></textarea>
 <br>
 <input type="submit" name="ADD" value="ADD" class="add-button">
 <br>
