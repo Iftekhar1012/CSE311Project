@@ -65,6 +65,7 @@ require('db.php');
 session_start();
 
 $p_name = $_SESSION['spn'];
+echo "<a href = 'customer_dashboard.php'>Return to dashboard</a>";
 
 echo "<h2>$p_name</h2>";
 

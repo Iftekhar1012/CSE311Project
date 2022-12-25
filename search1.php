@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
 	
     $str    = stripslashes($_REQUEST['str']);
     $str    = mysqli_real_escape_string($con, $str);
-	$sql="SELECT * FROM category WHERE category_name = '$str' AND (providers <> '$un' OR providers IS NULL);";
+	$sql="SELECT * FROM category WHERE category_name = '$str' AND (providers IS NULL OR Providers <> '$un')";
 	$res=mysqli_query($con,$sql);
 	if(mysqli_num_rows($res)>0){
 		$row=mysqli_fetch_assoc($res);
@@ -73,12 +73,25 @@ if(isset($_POST['submit'])){
        $res12=mysqli_query($con,$sql9);
 
        if(mysqli_num_rows($res12)>0){
+     
         echo"<table border='1'>";
         echo"<tr><td><strong>Poster</strong></td><td><strong>Category name</strong></td><td><strong>Category description</strong><td><strong>Date</strong></td></tr>";
         while ($row55=mysqli_fetch_assoc($res12)){
         
-            echo "<tr><td>{$row55['Customer_Username']}</td><td>{$row55['Catergory_name']}</td><td>{$row55['Description']}</td><td>{$row55['Post_Date']}</td></tr>";
-            echo"</table>";
+            echo "<tr><td> {$row55['Customer_Username']}</td><td> {$row55['Catergory_name']}</td><td> {$row55['Description']}</td><td> {$row55['Post_Date']}</td></tr>";
+            echo"</table>"?>
+
+              <form method='post'>
+            <input type='submit' name='save_post'
+                    value='Save post'/></form>";
+                    <?php
+                    if(isset($_POST['save_post'])){
+                            echo "<h1>Nothing really matters</h1>";
+                    }
+             
+        
+
+
         }
     }
        

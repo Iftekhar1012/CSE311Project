@@ -1,31 +1,32 @@
+<div>
 <?php
 require('db.php');
 session_start();
 
- $username = $_SESSION['username'];
+ 
+    $p_name = $_SESSION['username'];
+$sql5="SELECT * FROM customers where username = '$p_name'; ";
+       
+	$res5=mysqli_query($con,$sql5);
+	if(mysqli_num_rows($res5)>0){
+        echo"<table border='1'>";
+        echo"<tr><td><strong>Full name</strong></td><td><strong>Username</strong></td><td><strong>Address</strong></td>
+        <td><strong>Email</strong></td><td><strong>Phone</strong></td><td><strong>joined date</strong></td></tr>";
+         while($row5=mysqli_fetch_assoc($res5)){
+        
+            echo "<tr><td>{$row5['fullname']}</td><td>{$row5['username']}</td><td>{$row5['address']}</td><td>{$row5['email']}</td><td>{$row5['phone']}</td><td>{$row5['create_datetime']}</tr>";
 
-$query2 =  "SELECT * FROM `customers` WHERE username='$username'
-"; 
- $result2 = mysqli_query($con, $query2)  or die(mysql_error());
- $rows2 =  mysqli_fetch_assoc($result2);
+        }
+    
+        echo"</table>";
+    }
+        ?>
+        </div>
 
- echo "<strong>Fullname</strong>: ".$rows2['fullname'];
- echo "<br>";
- echo "<strong>Username</strong>: ".$rows2['username'];
- echo "<br>";
- echo "<strong>Address</strong>: ".$rows2['address'];
- echo "<br>";
- echo "<strong>Email</strong>: ".$rows2['email'];
- echo "<br>";
- echo "<strong>Phone number</strong>: ".$rows2['phone'];
- echo "<br>";
- echo "<strong>Joined</strong>: ".$rows2['create_datetime'];
- echo "<br>";
- echo "<strong>Average Rating</strong>: ".$rows2['rating'];
- echo "<br><br><br><br><br><br>";
- ?>
 
- <?php
+<?php
+
+
 
  $username = $_SESSION['username'];
 

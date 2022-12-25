@@ -28,7 +28,7 @@ include("db.php");
     <h1><a href="category1.php">Create a new category</a></h1>
     <h1><a href="search2.php">Search</a></h1>
     <h1><a href='#'>Inbox</a></h1>
-    <h1><a href='#'>Notification</a></h1>
+    <h1><a href='saved_providers.php'>Saved</a></h1>
     </div>
 </body>
 </html>
